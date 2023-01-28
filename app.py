@@ -36,6 +36,9 @@ GOOGLE_API_KEY= st.secrets['google_api_key']
 pick_up_adress= st.text_input('PickUp Adress')
 drop_off_adress= st.text_input('DropOff Adress')
 
+while not pick_up_adress or not drop_off_adress:
+    st.stop()
+
 GEOCODE_URL_pickup = f'https://maps.googleapis.com/maps/api/geocode/json?address={pick_up_adress}&key={GOOGLE_API_KEY}'
 GEOCODE_URL_dropoff = f'https://maps.googleapis.com/maps/api/geocode/json?address={drop_off_adress}&key={GOOGLE_API_KEY}'
 
